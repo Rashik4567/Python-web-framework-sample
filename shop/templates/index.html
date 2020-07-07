@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+  <title>E_shop</title>
+</head>
+<style>
+  .card-body:hover {
+    background-color: rgb(159, 235, 159);
+    color: black;
+  }
+
+  .dark {
+    background-image: url('https://images.unsplash.com/photo-1592807834677-6501884e1a85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: white;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .dark-mode {
+    background-color: rgb(120, 120, 120);
+    color: white;
+  }
+
+  .mySlides {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-height: 400px;
+  }
+</style>
+
+<nav class="navbar navbar-dark bg-dark" style="height: auto;">
+  <a class="navbar-brand" href="">E-shop</a>
+  <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+    class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <a href="">Log-in</a> &nbsp &nbsp <br><br>
+    <button type="button" class="btn btn-primary">
+      Cart <span class="badge badge-light">0</span>
+    </button><br><br>
+    <form class="form-inline my-2 my-lg-0">
+      <input aria-label="Search" class="form-control mr-sm-2" placeholder="Search" type="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<body class="dark">
+
+  <div style="height: 5px;"></div>
+  <h2 class="center">Welcome to our shoping site!</h2>
+  <h3 class="center">buy everything on your mind.</h3>
+  <br></br><br></br>
+
+  {% for i in ap %}
+  <img class="mySlides" src="{{i.Picture_link}}">
+  {% endfor %}
+
+
+  <br></br><br></br>
+
+  <div class="row">
+    {% for x in ap %}
+    <!-- <div class="col"></div> -->
+    <div class="col-sm-3">
+      <div class="card text-white bg-dark mb-3" style="width: 18rem;" style="background-color: black;">
+        <img src={{x.Picture_link}} class="card-img-top" alt="Couldn't load image" height="210" width="150">
+        <div class="card-body">
+          <h5 class="card-title">{{x.Name}}</h5>
+          <p class="card-text">{{x.Price}} $</p>
+          <a href={{x.id}} class="btn btn-primary">View details</a>
+        </div>
+        <div class="card-footer text-muted" style="font-size: small;">
+          Released on: {{x.Release_date}}
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col"></div> -->
+    {% endfor %}
+    <!-- <div class="col"></div> -->
+  </div>
+  <nav class="navbar navbar-dark bg-dark" style="height: auto;">
+    <div class="col-sm-4" style="left: 20px;">
+      <h3>Help and support.</h3>
+      <a href="">Contect us.</a><br>
+      <a href="">Report issue.</a><br>
+      <a href="">Report bug.</a><br>
+      <a href="">Blog.</a><br>
+
+      <a href="">Get help.</a><br>
+      <a href="">Support us.</a><br>
+    </div>
+    <br><br><br>
+    <div class="col-sm-4">
+      <h3>User terms and policy.</h3>
+      <a href="">About us.</a><br>
+      <a href="">What we collect.</a><br>
+      <a href="">User privacy.</a><br>
+      <a href="">Licences and agreement.</a><br>
+      <a href="">Translation authors.</a><br>
+    </div>
+    <div class="col-sm-4">
+      <h3>Make mony with us.</h3><br>
+      <a href="">Sell products.</a><br>
+      <a href="">Create seller account.</a><br>
+      <a href="">View your products.</a><br>
+      <a href="">Advartise your product.</a><br>
+    </div>
+    <div class="col-sm-4">
+      <h3>Coryright issues and sources.</h3>
+      <a href="">View github repo.</a><br>
+      <p style="color: blue;">Background image is not owned and taken from Unsplash(www.unsplash.com).</p><br>
+    </div>
+    </div>
+  </nav>
+
+  <!-- <div class="navbar" style="bottom: 10px; background-color: black; width: 100%;">
+    <div class="col" style="left: 20px;">
+      <h3>Help and support.</h3>
+      <a href="">Contect us.</a><br>
+      <a href="">Report issue.</a><br>
+      <a href="">Report bug.</a><br>
+      <a href="">Blog.</a><br>
+
+      <a href="">Get help.</a><br>
+      <a href="">Support us.</a><br>
+    </div>
+    <div class="col">
+      <h3>User terms and policy.</h3>
+      <a href="">About us.</a><br>
+      <a href="">What we collect.</a><br>
+      <a href="">User privacy.</a><br>
+      <a href="">Licences and agreement.</a><br>
+    </div>
+    <div class="col">
+      <h3>Make mony with us.</h3>
+    </div>
+    <div class="col">
+      <h3>Coryright issues and sources.</h3>
+      <a href="">View github repo.</a><br>
+      <p style="color: blue;">Background image is not owned and taken from Unsplash(www.unsplash.com).</p><br>
+    </div>
+  </div> -->
+  <script>
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) { x[i].style.display = "none"; } slideIndex++; if (slideIndex > x.length) {
+        slideIndex =
+          1
+      }
+      x[slideIndex - 1].style.display = "block";
+      setTimeout(carousel, 5000); // Change image every 2 seconds
+    }
+  </script>
+</body>
+
+</html>
+{% endblock %}
