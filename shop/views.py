@@ -18,6 +18,7 @@ def Home(request):
 
 
 def product(request, product_id):
+    item = None
     product = products.objects.all()
     for i in product:
         if i.id == product_id:
